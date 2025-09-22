@@ -23,17 +23,21 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 
 ### ER Diagram:
 *Paste or attach your diagram here*  
-![ER Diagram](er_diagram_fitness.png)
+<img width="980" height="698" alt="image" src="https://github.com/user-attachments/assets/2b2db0c6-a0a5-4ed9-aafe-976ef3e3833d" />
+
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+| Entity                | Attributes (PK, FK) |                                              | Notes                                |
+|-----------------------|--------------------------------------------------------------------|--------------------------------------|
+|Member                 | MemberID (PK), Name                                                |Stores member details                 |
+|MembershipType         |MemberID (FK), StartDate                                            |Stores membership details per member  |
+| Trainer               | TrainerID (PK), Specialization                                     |Stores trainer details                |
+|PersonalTrainingSession|SessionID (PK), MemberID (FK), TrainerID (FK), Date, Time, Duration |Tracks personal training sessions     |
+|Attendance             |SessionID (FK), AttendanceDate, Status                              |Tracks attendance of sessions         |
+|Payment                |PaymentID (PK), TrainerID (FK), PaymentNo, Date, Amount, PaymentType|Tracks payments to trainers           | 
+|MemberProgram          |MemberID (FK), TrainerID (FK)                                       |Association between member and program|
+
 
 ### Relationships and Constraints
 
