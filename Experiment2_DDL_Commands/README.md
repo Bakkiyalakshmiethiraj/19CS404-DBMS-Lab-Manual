@@ -3,6 +3,12 @@
 ## AIM
 To study and implement DDL commands and different types of constraints.
 
+### Name : Bakkiyalakshmi E
+### Register Number : 212223220012
+
+## AIM
+To study and implement DDL commands and different types of constraints.
+
 ## THEORY
 
 ### 1. CREATE
@@ -105,8 +111,97 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
-Create a table named Invoices with the following constraints:
+Create a new table named contacts with the following specifications:
+contact_id as INTEGER and primary key.
+first_name as TEXT and not NULL.
+last_name as TEXT and not NULL.
+email as TEXT.
+phone as TEXT and not NULL with a check constraint to ensure the length of phone is at least 10 characters.
 
+```sql
+CREATE TABLE contacts(
+contact_id INT PRIMARY KEY,
+first_name TEXT NOT NULL,
+last_name TEXT NOT NULL,
+email TEXT,
+phone TEXT NOT NULL CHECK(LENGTH(phone)>=10)
+);
+
+```
+
+**Output:**
+![image](https://github.com/user-attachments/assets/cb6e0a5d-32d2-4819-8e66-ceca9c27428a)
+
+
+**Question 2**
+---
+Insert the following products into the Products table:
+Name        Category     Price       Stock
+----------  -----------  ----------  ----------
+Smartphone  Electronics  800         150
+Headphones  Accessories  200         300
+
+```sql
+INSERT INTO Products(Name,Category,Price,Stock) 
+VALUES ('Smartphone','Electronics','800','150');
+INSERT INTO Products(Name,Category,Price,Stock)
+VALUES ('Headphones','Accessories','200','300');
+```
+
+**Output:**
+
+![Screenshot 2025-05-03 104726](https://github.com/user-attachments/assets/5f06893a-977d-44cd-bab7-64aef6ef977b)
+
+
+
+**Question 3**
+---
+Write a SQL Query to add an attribute designation in the employee table with the data type VARCHAR(50).
+
+```sql
+ALTER TABLE employee ADD designation varchar(50);
+```
+
+**Output:**
+![image](https://github.com/user-attachments/assets/dacc0bde-962e-4878-93eb-2d1ebb7361f7)
+
+
+**Question 4**
+---
+Insert a product with ProductID 104, Name Tablet, and Category Electronics into the Products table, where Price and Stock should use default values.
+
+```sql
+INSERT INTO Products(ProductID,Name,Category,Price,Stock)
+VALUES ('104','Tablet','Electronics','100','50');
+```
+
+**Output:**
+![image](https://github.com/user-attachments/assets/af64f42c-56c7-4bef-a145-3515d22253b1)
+
+
+**Question 5**
+---
+Create a table named Orders with the following constraints:
+OrderID as INTEGER should be the primary key.
+OrderDate as DATE should be not NULL.
+CustomerID as INTEGER should be a foreign key referencing Customers(CustomerID).
+
+```sql
+CREATE TABLE Orders(
+OrderID INT PRIMARY KEY,
+OrderDate DATE NOT NULL,
+CustomerID INT,
+FOREIGN KEY(CustomerID) REFERENCES Customers(CustomerID)
+);
+```
+
+**Output:**
+![image](https://github.com/user-attachments/assets/4c9398ca-de58-47fa-96a6-8dbc202ece98)
+
+
+**Question 6**
+---
+Create a table named Invoices with the following constraints:
 InvoiceID as INTEGER should be the primary key.
 InvoiceDate as DATE.
 DueDate as DATE should be greater than the InvoiceDate.
@@ -114,129 +209,79 @@ Amount as REAL should be greater than 0.
 
 ```sql
 CREATE TABLE Invoices(
-InvoiceID INTEGER PRIMARY KEY,
+InvoiceID INT PRIMARY KEY,
 InvoiceDate DATE,
-DueDate DATE CHECK(DueDate >InvoiceDate),
-Amount REAL CHECK (Amount > 0)
-)
-```
-
-**Output:**
-![Screenshot 2025-04-28 144215](https://github.com/user-attachments/assets/160a25e6-61cc-4476-aadf-9c604367bfc6)
-
-
-**Question 2**
----
-Write an SQL command can to add a column named email of type TEXT to the customers table
-
-```sql
-ALTER TABLE Customers ADD COLUMN email TEXT;
-```
-
-**Output:**
-
-![Screenshot 2025-04-28 144448](https://github.com/user-attachments/assets/196ac254-4e63-4871-8c1b-650dfbddfe48)
-
-
-**Question 3**
----
-Create a table named Reviews with the following columns:
-
-ReviewID as INTEGER
-ProductID as INTEGER
-Rating as REAL
-ReviewText as TEXT
-
-```sql
-CREATE TABLE Reviews(
-ReviewID INTEGER,
-ProductID INTEGER,
-Rating REAL,
-ReviewText TEXT
+DueDate DATE CHECK(DueDate>InvoiceDate),
+Amount REAL CHECK(Amount>0)
 );
 ```
 
 **Output:**
 
-![Screenshot 2025-04-28 144655](https://github.com/user-attachments/assets/239db912-cbe0-4793-8fad-63e105d73003)
-
-
-**Question 4**
----
-Insert the below data into the Student_details table, allowing the Subject and MARKS columns to take their default values.
-
-```sql
-INSERT INTO Student_details(RollNo, Name, Gender)
-VALUES(204,'Samuel Black','M');
-```
-
-**Output:**
-
-![Screenshot 2025-05-05 132850](https://github.com/user-attachments/assets/7e7fb804-af68-4bc2-902a-6acb58000463)
-
-
-**Question 5**
----Write an SQL Query to add the attributes designation, net_salary, and dob to the Companies table with the following data types:
-designation as VARCHAR(50)
-net_salary as NUMBER
-dob as DATE
-
-```sql
-ALTER TABLE Companies ADD COLUMN designation  varchar(50);
-ALTER TABLE Companies ADD COLUMN net_salary  number;
-ALTER TABLE Companies ADD COLUMN dob  date;
-```
-
-**Output:**
-![Screenshot 2025-05-05 133025](https://github.com/user-attachments/assets/9340132f-fc02-4f67-945d-2d5c7ad0bf73)
-
-
-**Question 6**
----
-Create a table named Shipments with the following constraints:
-ShipmentID as INTEGER should be the primary key.
-ShipmentDate as DATE.
-SupplierID as INTEGER should be a foreign key referencing Suppliers(SupplierID).
-OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
-
-```sql
-CREATE TABLE Shipments(
-ShipmentID INTEGER PRIMARY KEY,
-ShipmentDate DATE,
-SupplierID INTEGER,
-OrderID INTEGER,
-FOREIGN KEY(SupplierID) REFERENCES Suppliers(SupplierID),
-FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
-
-);
-```
-
-**Output:**
-
-![Screenshot 2025-05-05 133153](https://github.com/user-attachments/assets/77f8e7de-ce3f-4d43-862e-5d24244f4a4e)
+![image](https://github.com/user-attachments/assets/18cce143-dceb-42c8-adf8-77f1b1d13b99)
 
 
 **Question 7**
 ---
-Create a table named Department with the following constraints:
-DepartmentID as INTEGER should be the primary key.
-DepartmentName as TEXT should be unique and not NULL.
-Location as TEXT.
+Create a table named Invoices with the following constraints:
+InvoiceID as INTEGER should be the primary key.
+InvoiceDate as DATE.
+Amount as REAL should be greater than 0.
+DueDate as DATE should be greater than the InvoiceDate.
+OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
 
 ```sql
-CREATE TABLE Department(
-DepartmentID INTEGER PRIMARY KEY,
-DepartmentName TEXT UNIQUE NOT NULL,
-Location TEXT
+CREATE TABLE Invoices(
+InvoiceID INT PRIMARY KEY,
+InvoiceDate DATE,
+Amount REAL CHECK(Amount>0),
+DueDate DATE CHECK(DueDate>InvoiceDate),
+OrderID INT,
+FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
 );
-
 ```
 
 **Output:**
 
-![Screenshot 2025-05-05 133333](https://github.com/user-attachments/assets/0451ce42-362c-470b-9799-5935ab7cb312)
+![image](https://github.com/user-attachments/assets/4b57f161-7e2d-4e37-9d7c-0da475ff8bd6)
+
 
 **Question 8**
+---
+Create a table named Tasks with the following columns:
+TaskID as INTEGER
+TaskName as TEXT
+DueDate as DATE
+
+```sql
+CREATE TABLE Tasks(
+TaskID INTEGER,
+TaskName TEXT,
+DueDate DATE
+);
+```
+
+**Output:**
+
+![image](https://github.com/user-attachments/assets/9f9a0a4e-5d8a-4663-98ae-536cf84a0baf)
+
+
+**Question 9**
+---
+Insert all products from Discontinued_products into Products.
+Table attributes are ProductID, ProductName, Price, Stock
+
+```sql
+INSERT INTO Products(ProductID,ProductName,Price,Stock)
+SELECT ProductID,ProductName,Price,Stock FROM Discontinued_Products;
+```
+
+**Output:**
+
+![image](https://github.com/user-attachments/assets/53800105-544f-4392-8f0f-344bcb0a500a)
+
+
+**Question 10**
 ---
 Write an SQL Query to add the attributes designation, net_salary, and dob to the Companies table with the following data types:
 designation as VARCHAR(50)
@@ -244,56 +289,17 @@ net_salary as NUMBER
 dob as DATE
 
 ```sql
-ALTER TABLE Companies ADD COLUMN designation  varchar(50);
-ALTER TABLE Companies ADD COLUMN net_salary  number;
-ALTER TABLE Companies ADD COLUMN dob  date;
+ALTER TABLE Companies 
+ADD COLUMN designation varchar(50);
+ALTER TABLE Companies 
+ADD COLUMN net_salary number;
+ALTER TABLE Companies 
+ADD COLUMN dob date;
 ```
 
 **Output:**
 
-![Screenshot 2025-05-05 133714](https://github.com/user-attachments/assets/3ae86a8c-d6c0-4d7f-9001-98e06bf91001)
-
-
-**Question 9**
----
-Create a table named Orders with the following columns:
-
-OrderID as INTEGER
-OrderDate as TEXT
-CustomerID as INTEGER
-
-```sql
-CREATE TABLE Orders(
-OrderID INTEGER,
-OrderDate TEXT,
-CustomerID INTEGER
-);
-```
-
-**Output:**
-
-![111](https://github.com/user-attachments/assets/340f2aae-8265-482b-b065-2341c0a75c43)
-
-
-**Question 10**
----
-Create a table named Products with the following constraints:
-ProductID as INTEGER should be the primary key.
-ProductName as TEXT should be unique and not NULL.
-Price as REAL should be greater than 0.
-StockQuantity as INTEGER should be non-negative.
-
-```sqlCREATE TABLE Products(
-ProductID INTEGER PRIMARY KEY,
-ProductName TEXT UNIQUE NOT NULL,
-Price REAL CHECK(Price>1),
-StockQuantity INTEGER CHECK(StockQuantity>=1)
-);
-```
-
-**Output:**
-
-![Uploading 122.jpg…]()
+![image](https://github.com/user-attachments/assets/0c063267-1d3c-486d-9b6a-4770063e4b2c)
 
 
 
