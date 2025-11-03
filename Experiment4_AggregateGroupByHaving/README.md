@@ -1,15 +1,14 @@
 # Experiment 4: Aggregate Functions, Group By and Having Clause
-
+```
+Name: Bakkiyalakshmi E
+Reg No: 212223220012
+```
 ## AIM
 To study and implement aggregate functions, GROUP BY, and HAVING clause with suitable examples.
 
 ## THEORY
 
 ### Aggregate Functions
-```
-Name: Bakkiyalakshmi E
-Reg No: 212223220012
-```
 These perform calculations on a set of values and return a single value.
 
 - **MIN()** – Smallest value  
