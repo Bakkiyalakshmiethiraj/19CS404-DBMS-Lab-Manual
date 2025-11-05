@@ -1,4 +1,8 @@
 # Experiment 6: Joins
+```
+Name: Bakkiyalakshmi E
+reg No: 212223220012
+```
 
 ## AIM
 To study and implement different types of joins.
