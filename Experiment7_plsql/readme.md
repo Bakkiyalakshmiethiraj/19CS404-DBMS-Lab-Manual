@@ -1,6 +1,8 @@
 # Experiment 7: PL/SQL – Variables, Control Structures and Loops
-## Name: Puli Naga Neeraj
-## Reg.n0:212223240130
+```
+Name: Bakkiyalakshmi E
+Reg No: 212223220012
+```
 ## AIM
 To write and execute simple PL/SQL programs using variables, loops, and conditional statements.
 
@@ -188,4 +190,5 @@ END;
 
 ## RESULT
 Thus, the PL/SQL programs using variables, conditionals, and loops were executed successfully.
+
 
